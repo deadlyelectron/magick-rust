@@ -53,6 +53,16 @@ fn main() {
             .no_unstable_rust()
             .emit_builtins()
             .ctypes_prefix("libc")
+            .hide_type("FP_INT_UPWARD")
+            .hide_type("FP_INT_DOWNWARD")
+            .hide_type("FP_INT_TOWARDZERO")
+            .hide_type("FP_INT_TONEARESTFROMZERO")
+            .hide_type("FP_INT_TONEAREST")
+            .hide_type("FP_NAN")
+            .hide_type("FP_INFINITE")
+            .hide_type("FP_ZERO")
+            .hide_type("FP_SUBNORMAL")
+            .hide_type("FP_NORMAL")
             .raw_line("extern crate libc;")
             .header(gen_h_path.to_str().unwrap());
         for include_path in library.include_paths {
